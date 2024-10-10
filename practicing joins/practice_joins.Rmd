@@ -76,7 +76,8 @@ create 'data_self_reports_and_their_amp_data' by joining data_selfreport_summary
 
 ```{r}
 
-# data_self_reports_and_their_amp_data <- 
+# data_self_reports_and_their_amp_data <- left_join(data_selfreport_summary_subset, data_amp_summary_subset, copy = TRUE, keep = NULL)
+data_self_reports_and_their_amp_data <- left_join(data_selfreport_summary_subset, data_amp_summary_subset, copy = TRUE, keep = NULL)
 
 ```
 
