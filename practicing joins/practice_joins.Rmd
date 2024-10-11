@@ -77,7 +77,7 @@ create 'data_self_reports_and_their_amp_data' by joining data_selfreport_summary
 ```{r}
 
 # data_self_reports_and_their_amp_data <- left_join(data_selfreport_summary_subset, data_amp_summary_subset, copy = TRUE, keep = NULL)
-data_self_reports_and_their_amp_data <- left_join(data_selfreport_summary_subset, data_amp_summary_subset, copy = TRUE, keep = NULL)
+data_self_reports_and_their_amp_data <- left_join(data_selfreport_summary_subset, data_amp_summary_subset, copy = FALSE, keep = NULL)
 
 ```
 
@@ -87,7 +87,7 @@ do the opposite: create 'data_amp_data_and_their_self_reports' by joining data_a
 
 ```{r}
 
-# data_amp_data_and_their_self_reports <- 
+# data_amp_data_and_their_self_reports <- right_join(data_selfreport_summary_subset, data_amp_summary_subset, copy = TRUE, keep = NULL)
 
 ```
 

@@ -1720,7 +1720,7 @@ data_selfreport_summary_subset and data_amp_summary_subset so that all
 participants have self-report data, + AMP data if available. which join
 is this? implement it.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="co"># data_self_reports_and_their_amp_data &lt;- left_join(data_selfreport_summary_subset, data_amp_summary_subset, copy = TRUE, keep = NULL)</span></span>
-<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a>data_self_reports_and_their_amp_data <span class="ot">&lt;-</span> <span class="fu">left_join</span>(data_selfreport_summary_subset, data_amp_summary_subset, <span class="at">copy =</span> <span class="cn">TRUE</span>, <span class="at">keep =</span> <span class="cn">NULL</span>)</span></code></pre></div>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a>data_self_reports_and_their_amp_data <span class="ot">&lt;-</span> <span class="fu">left_join</span>(data_selfreport_summary_subset, data_amp_summary_subset, <span class="at">copy =</span> <span class="cn">FALSE</span>, <span class="at">keep =</span> <span class="cn">NULL</span>)</span></code></pre></div>
 </div>
 <div id="practice-3" class="section level2">
 <h2>Practice 3</h2>
@@ -1728,7 +1728,7 @@ is this? implement it.</p>
 joining data_amp_summary_subset and data_selfreport_summary_subset so
 that all participants have AMP data, + self-report data if available.
 which join is this? implement it.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="co"># data_amp_data_and_their_self_reports &lt;- </span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="co"># data_amp_data_and_their_self_reports &lt;- right_join(data_selfreport_summary_subset, data_amp_summary_subset, copy = TRUE, keep = NULL)</span></span></code></pre></div>
 </div>
 <div id="practice-4" class="section level2">
 <h2>Practice 4</h2>
