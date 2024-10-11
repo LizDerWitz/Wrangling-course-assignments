@@ -84,7 +84,7 @@ create data_combined_2 by joining 'data_combined' and data_selfreport_summary_su
 
 ```{r}
 
-data_combined_2 <- semi_join(data_combined, data_selfreport_summary_subset, by = , copy = FALSE)
+data_combined_2 <- left_join(data_combined, data_selfreport_summary_subset, by = NULL)
 
 ```
 
@@ -94,7 +94,7 @@ create 'data_missing_ids' which should list the unique_ids are missing from data
 
 ```{r}
 
-# data_missing_ids <- 
+data_missing_ids <- 
 
 ```
 
