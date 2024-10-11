@@ -93,8 +93,8 @@ data_combined_2 <- left_join(data_combined, data_selfreport_summary_subset, by =
 create 'data_missing_ids' which should list the unique_ids are missing from data_unique_id_subset but are present in at least one of data_age_gender_subset, data_amp_summary_subset, and data_selfreport_summary_subset. This will require two different joins. Which? Implement them.
 
 ```{r}
-
-data_missing_ids <- 
+data_missing <- full_join(data_age_gender_subset, data_amp_summary_subset, data_selfreport_summary_subset, by = NULL)
+data_missing_ids <- anti_join(data_unique_id_subset, data_missing, by = NULL)
 
 ```
 

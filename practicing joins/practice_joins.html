@@ -1720,7 +1720,7 @@ which join is this? implement it.</p>
 <p>create data_combined_2 by joining ‘data_combined’ and
 data_selfreport_summary_subset only unique_ids already present in
 data_combined are retained. which join is this? implement it.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a>data_combined_2 <span class="ot">&lt;-</span> <span class="fu">semi_join</span>(data_combined, data_selfreport_summary_subset, <span class="at">by =</span> , <span class="at">copy =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a>data_combined_2 <span class="ot">&lt;-</span> <span class="fu">left_join</span>(data_combined, data_selfreport_summary_subset, <span class="at">by =</span> <span class="cn">NULL</span>)</span></code></pre></div>
 </div>
 <div id="practice-5" class="section level2">
 <h2>Practice 5</h2>
@@ -1729,7 +1729,8 @@ missing from data_unique_id_subset but are present in at least one of
 data_age_gender_subset, data_amp_summary_subset, and
 data_selfreport_summary_subset. This will require two different joins.
 Which? Implement them.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="co"># data_missing_ids &lt;- </span></span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a>data_missing <span class="ot">&lt;-</span> <span class="fu">full_join</span>(data_age_gender_subset, data_amp_summary_subset, data_selfreport_summary_subset, <span class="at">by =</span> <span class="cn">NULL</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a>data_missing_ids <span class="ot">&lt;-</span> <span class="fu">anti_join</span>(data_unique_id_subset, data_missing, <span class="at">by =</span> <span class="cn">NULL</span>)</span></code></pre></div>
 </div>
 </div>
 
