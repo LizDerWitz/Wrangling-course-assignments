@@ -52,21 +52,7 @@ Using the data frames below and functions from the _join family, write code to d
 create 'data_combined' by joining data_amp_summary_subset and data_age_gender_subset so that unique_ids in either data frame are retained. which join is this? implement it. 
 
 ```{r}
-# cross_join()
-#cross_join(data_amp_summary_subset, data_age_gender_subset, copy = FALSE, suffix = c ("unique_id_left", "unique_id_right"))
-
-# data_combined <- cross_join(data_amp_summary_subset, data_age_gender_subset, copy = FALSE, suffix = c ("unique_id_left", "unique_id_right"))
-
-#solution n1 worked 
-
-# data_amp_summary <- data_amp_summary_subset %>% 
-# rename(unique_id2 = unique_id) 
-
-# data_combined2 <- full_join(data_amp_summary, data_age_gender_subset, by = character(0))
-
-# by character specifies that there is no common key for matching 
-
-# solution n2 worked
+data_combined <- full_join(data_amp_summary_subset, data_age_gender_subset, by = "unique_id")
 
 ```
 
@@ -76,8 +62,8 @@ create 'data_self_reports_and_their_amp_data' by joining data_selfreport_summary
 
 ```{r}
 
-# data_self_reports_and_their_amp_data <- left_join(data_selfreport_summary_subset, data_amp_summary_subset, copy = TRUE, keep = NULL)
-data_self_reports_and_their_amp_data <- left_join(data_selfreport_summary_subset, data_amp_summary_subset, copy = FALSE, keep = NULL)
+data_self_reports_and_their_amp_data <- left_join(data_selfreport_summary_subset, data_amp_summary_subset, copy = TRUE, keep = NULL)
+
 
 ```
 
@@ -87,7 +73,8 @@ do the opposite: create 'data_amp_data_and_their_self_reports' by joining data_a
 
 ```{r}
 
-# data_amp_data_and_their_self_reports <- right_join(data_selfreport_summary_subset, data_amp_summary_subset, copy = TRUE, keep = NULL)
+data_amp_data_and_their_self_reports <- right_join(data_selfreport_summary_subset, data_amp_summary_subset, copy = TRUE, keep = NULL)
+
 
 ```
 
@@ -97,7 +84,7 @@ create data_combined_2 by joining 'data_combined' and data_selfreport_summary_su
 
 ```{r}
 
-# data_combined_2 <- 
+data_combined_2 <- semi_join(data_combined, data_selfreport_summary_subset, by = , copy = FALSE)
 
 ```
 

@@ -1662,7 +1662,7 @@ border-radius: 0px;
 
 <h1 class="title toc-ignore">Practicing joins</h1>
 <h4 class="author">Template: Ian Hussey; content: [Student name]</h4>
-<h4 class="date">10 October, 2024</h4>
+<h4 class="date">11 October, 2024</h4>
 
 </div>
 
@@ -1697,21 +1697,7 @@ write code to do the following joins.</p>
 <p>create ‘data_combined’ by joining data_amp_summary_subset and
 data_age_gender_subset so that unique_ids in either data frame are
 retained. which join is this? implement it.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="co"># cross_join()</span></span>
-<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a><span class="co">#cross_join(data_amp_summary_subset, data_age_gender_subset, copy = FALSE, suffix = c (&quot;unique_id_left&quot;, &quot;unique_id_right&quot;))</span></span>
-<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a></span>
-<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a><span class="co"># data_combined &lt;- cross_join(data_amp_summary_subset, data_age_gender_subset, copy = FALSE, suffix = c (&quot;unique_id_left&quot;, &quot;unique_id_right&quot;))</span></span>
-<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a></span>
-<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a><span class="co">#solution n1 worked </span></span>
-<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a></span>
-<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a><span class="co"># data_amp_summary &lt;- data_amp_summary_subset %&gt;% </span></span>
-<span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a><span class="co"># rename(unique_id2 = unique_id) </span></span>
-<span id="cb10-10"><a href="#cb10-10" tabindex="-1"></a></span>
-<span id="cb10-11"><a href="#cb10-11" tabindex="-1"></a><span class="co"># data_combined2 &lt;- full_join(data_amp_summary, data_age_gender_subset, by = character(0))</span></span>
-<span id="cb10-12"><a href="#cb10-12" tabindex="-1"></a></span>
-<span id="cb10-13"><a href="#cb10-13" tabindex="-1"></a><span class="co"># by character specifies that there is no common key for matching </span></span>
-<span id="cb10-14"><a href="#cb10-14" tabindex="-1"></a></span>
-<span id="cb10-15"><a href="#cb10-15" tabindex="-1"></a><span class="co"># solution n2 worked</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>data_combined <span class="ot">&lt;-</span> <span class="fu">full_join</span>(data_amp_summary_subset, data_age_gender_subset, <span class="at">by =</span> <span class="st">&quot;unique_id&quot;</span>)</span></code></pre></div>
 </div>
 <div id="practice-2" class="section level2">
 <h2>Practice 2</h2>
@@ -1719,8 +1705,7 @@ retained. which join is this? implement it.</p>
 data_selfreport_summary_subset and data_amp_summary_subset so that all
 participants have self-report data, + AMP data if available. which join
 is this? implement it.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="co"># data_self_reports_and_their_amp_data &lt;- left_join(data_selfreport_summary_subset, data_amp_summary_subset, copy = TRUE, keep = NULL)</span></span>
-<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a>data_self_reports_and_their_amp_data <span class="ot">&lt;-</span> <span class="fu">left_join</span>(data_selfreport_summary_subset, data_amp_summary_subset, <span class="at">copy =</span> <span class="cn">FALSE</span>, <span class="at">keep =</span> <span class="cn">NULL</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a>data_self_reports_and_their_amp_data <span class="ot">&lt;-</span> <span class="fu">left_join</span>(data_selfreport_summary_subset, data_amp_summary_subset, <span class="at">copy =</span> <span class="cn">TRUE</span>, <span class="at">keep =</span> <span class="cn">NULL</span>)</span></code></pre></div>
 </div>
 <div id="practice-3" class="section level2">
 <h2>Practice 3</h2>
@@ -1728,14 +1713,14 @@ is this? implement it.</p>
 joining data_amp_summary_subset and data_selfreport_summary_subset so
 that all participants have AMP data, + self-report data if available.
 which join is this? implement it.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="co"># data_amp_data_and_their_self_reports &lt;- right_join(data_selfreport_summary_subset, data_amp_summary_subset, copy = TRUE, keep = NULL)</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a>data_amp_data_and_their_self_reports <span class="ot">&lt;-</span> <span class="fu">right_join</span>(data_selfreport_summary_subset, data_amp_summary_subset, <span class="at">copy =</span> <span class="cn">TRUE</span>, <span class="at">keep =</span> <span class="cn">NULL</span>)</span></code></pre></div>
 </div>
 <div id="practice-4" class="section level2">
 <h2>Practice 4</h2>
 <p>create data_combined_2 by joining ‘data_combined’ and
 data_selfreport_summary_subset only unique_ids already present in
 data_combined are retained. which join is this? implement it.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="co"># data_combined_2 &lt;- </span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a>data_combined_2 <span class="ot">&lt;-</span> <span class="fu">semi_join</span>(data_combined, data_selfreport_summary_subset, <span class="at">by =</span> , <span class="at">copy =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 </div>
 <div id="practice-5" class="section level2">
 <h2>Practice 5</h2>
